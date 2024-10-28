@@ -1,47 +1,31 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+//Config
+import React, { useState } from 'react';
+//Hooks
+import useProductos from '../hooks/useProductos';
 //Componentes
 import LoadingSpinner from "../components/LoadingSpinner";
 //CSS
 import "../styles/Productos.css";
 
 function Productos() {
-  const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { productos, cargando, error, filtrarProductos } = useProductos();
+  const [buscar, setBuscar] = useState('');
 
-  useEffect(() => {
-    axios
-      .get("http://127.0.0.1:8000/api/productos")
-      .then((response) => {
-        setProductos(response.data);
-        setError(null);
-      })
-      .catch((error) => {
-        console.error("Error al obtener los productos:", error);
-        setError(
-          "Error al obtener los productos. Intente nuevamente o contacte al administrador."
-        );
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
-
-  if (loading) {
-    return <LoadingSpinner />
-    //<div className="loading">Cargando...</div>;
-  }
-
-  if (error) {
-    return <div className="error">{error}</div>;
-  }
+  if (cargando) return <LoadingSpinner />
+  if (error)  return <div className="error">{error}</div>;
+  const productosFiltrados = filtrarProductos(buscar);
 
   return (
     <div>
       <h1>Lista de Productos</h1>
+      <input
+        type="text"
+        placeholder="Buscar producto"
+        value={buscar}
+        onChange={e => setBuscar(e.target.value)}
+      />
       <ul>
-        {productos.map((producto) => (
+        {productosFiltrados.map((producto) => (
           <li key={producto.id}>
             {producto.id} - {producto.descripcion}
           </li>
