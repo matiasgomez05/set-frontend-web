@@ -6,7 +6,8 @@ Este es un proyecto frontend para la empresa Sueños en Telas (SET) en motivo de
 ## Pasos para configurar y probar el frontend de forma local
 
 - Clonar el Repositorio.
-- Instalar las dependencias de node con el comando `npm install`
+- Instalar las dependencias de node con el comando `npm install` desde la terminal
+- Ejecutar la aplicacion con `npm start` desde la terminal
 
-<u>Nota</u>: El proyecto usa un endpoint de desarrollo personal, tambien con motivo de practica, orientado al PHP para el Backend.
-<br>Se puede modificar el archivo `config.js` dentro de la carpeta `/api` para personalizar los resultados obtenidos, o bien utilizar el frontend sin ver datos (Manejo de errores habilitado)
+Nota: El proyecto usa un endpoint de desarrollo personal, tambien con motivo de practica, orientado al PHP para el Backend.
+Se puede modificar el archivo `config.js` dentro de la carpeta `/api` para personalizar los resultados obtenidos, o bien utilizar el frontend sin ver datos (Manejo de errores habilitado)
