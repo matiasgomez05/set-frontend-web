@@ -1,27 +1,27 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+const useFetch = (link) => {
+  const [datos, setDatos] = useState(null);
+  const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    setLoading(true);
+    setCargando(true);
     axios.get(url)
-      .then(response => {
-        setData(response.data);
+      .then(respuesta => {
+        setDatos(respuesta.data);
         setError(null);
       })
       .catch(err => {
         setError('Error al obtener los datos. Por favor, intenta nuevamente o contacte al administrador.');
       })
       .finally(() => {
-        setLoading(false);
+        setCargando(false);
       });
-  }, [url]);
+  }, [link]);
 
-  return { data, loading, error };
+  return { datos, cargando, error };
 };
 
 export default useFetch;

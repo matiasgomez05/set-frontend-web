@@ -11,7 +11,7 @@ function Productos() {
   const { productos, cargando, error, filtrarProductos } = useProductos();
   const [buscar, setBuscar] = useState('');
 
-  if (cargando) return <LoadingSpinner />
+  if (cargando) return <div className='loading'><LoadingSpinner /></div>
   if (error)  return <div className="error">{error}</div>;
   const productosFiltrados = filtrarProductos(buscar);
 

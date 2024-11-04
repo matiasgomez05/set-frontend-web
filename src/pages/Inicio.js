@@ -1,9 +1,9 @@
 //Config
 import React from 'react';
 //Style
-import "../styles/Home.css";
+import "../styles/Inicio.css";
 
-function Home() {
+function Inicio() {
   return (
     <div>
       <h1>Página de Inicio</h1>
@@ -12,4 +12,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Inicio;

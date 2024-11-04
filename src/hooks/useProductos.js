@@ -26,10 +26,10 @@ const useProductos = () => {
 
   const filtrarProductos = (query) => {
     return productos.filter(producto => {
-        const lowerCaseQuery = query.toLowerCase();
+        const minusculas = query.toLowerCase();
         return (
-            producto.descripcion.toLowerCase().includes(lowerCaseQuery) || 
-            producto.id.toString().includes(lowerCaseQuery)
+            producto.descripcion.toLowerCase().includes(minusculas) || 
+            producto.id.toString().includes(minusculas)
         );
     });
   };
